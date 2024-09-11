@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCategoriesTable extends Migration
@@ -21,6 +22,13 @@ class CreateCategoriesTable extends Migration
             
             $table->timestamps();
         });
+        DB::table('categories')->insert([
+            ['name' => 'Electronics', 'slug' => 'electronics'],
+            ['name' => 'Fashion', 'slug' => 'fashion'],
+            ['name' => 'Home & Kitchen', 'slug' => 'home-kitchen'],
+            ['name' => 'Beauty & Personal Care', 'slug' => 'beauty-personal care'],
+            ['name' => 'Sports & Outdoors', 'slug' => 'sports-outdoors'],
+        ]);
     }
 
     /**

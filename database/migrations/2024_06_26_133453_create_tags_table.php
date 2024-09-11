@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,6 +18,12 @@ return new class extends Migration
             $table->string('slug');
             $table->timestamps();
         });
+        DB::table('tags')->insert([
+            ['name' => 'PHP', 'slug' => 'php'],
+            ['name' => 'Laravel', 'slug' => 'laravel'],
+            ['name' => 'MySQL', 'slug' => 'mysql'],
+            ['name' => 'JavaScript', 'slug' => 'javascript'],
+        ]);
     }
 
     /**

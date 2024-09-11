@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,6 +23,10 @@ return new class extends Migration
 
             $table->timestamps();
         });
+        DB::table('images')->insert([
+            ['url' => 'https://via.placeholder.com/150', 'imageable_id' =>
+            DB::table('users')->where('id', 1)->value('id'), 'imageable_type' => 'App\Models\User'],
+        ]);
     }
 
     /**

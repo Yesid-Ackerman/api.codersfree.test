@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -27,6 +28,15 @@ return new class extends Migration
             
             $table->timestamps();
         });
+        DB::table('posts')->insert([
+            'name'=>'Prueba',
+            'slug' => 'slugs',
+            'extract' => 'extract',
+            'body' => 'body',
+            'status' => Post::BOORADOR,
+            'category_id' => 1,
+            'user_id' => 1,
+        ]);
     }
 
     /**

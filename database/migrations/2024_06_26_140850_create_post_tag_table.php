@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -18,6 +19,9 @@ return new class extends Migration
             $table->foreignId('tag_id')->references('id')->on('tags');
             $table->timestamps();
         });
+        DB::table('post_tag')->insert([
+            ['post_id' => 1, 'tag_id' => 1]
+        ]);
     }
 
     /**
